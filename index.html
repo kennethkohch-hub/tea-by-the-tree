@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tea by the Tree</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+body{
+font-family: Arial;
+background:#f5efe6;
+padding:20px;
+}
+
+h1{
+text-align:center;
+}
+
+.container{
+max-width:500px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+}
+
+select,input,textarea,button{
+width:100%;
+padding:10px;
+margin-top:10px;
+font-size:16px;
+}
+
+button{
+background:#6b4f3b;
+color:white;
+border:none;
+border-radius:5px;
+}
+
+button:hover{
+background:#4e3828;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🌳 Tea by the Tree</h1>
+
+<div class="container">
+
+<h3>Choose Your Tea</h3>
+<select id="tea">
+<option>Honey Red Tea</option>
+<option>Osmanthus Oolong Tea</option>
+<option>Tie Guan Yin</option>
+<option>Duck Shit Dancong ⭐</option>
+</select>
+
+<h3>Choose Style ($5)</h3>
+<select id="style">
+<option>Straight</option>
+<option>Milk Tea</option>
+<option>Lemon Lush</option>
+<option>Yakult Bliss</option>
+<option>Summer Passion</option>
+</select>
+
+<h3>Toppings (+$1)</h3>
+<select id="toppings">
+<option>None</option>
+<option>Brown Sugar Pearls</option>
+<option>Passion Fruit Popping Boba</option>
+<option>Aloe Vera</option>
+<option>Strawberry Popping Boba</option>
+</select>
+
+<h3>Sugar Level</h3>
+<select id="sugar">
+<option>0%</option>
+<option>25%</option>
+<option>50%</option>
+<option>75%</option>
+<option>100%</option>
+</select>
+
+<h3>Special Requests</h3>
+<textarea id="comments" placeholder="Example: Less ice"></textarea>
+
+<h3>Your Name</h3>
+<input id="name" placeholder="Enter your name">
+
+<button onclick="sendOrder()">Place Order</button>
+
+</div>
+
+<script>
+
+function sendOrder(){
+
+var tea=document.getElementById("tea").value;
+var style=document.getElementById("style").value;
+var toppings=document.getElementById("toppings").value;
+var sugar=document.getElementById("sugar").value;
+var comments=document.getElementById("comments").value;
+var name=document.getElementById("name").value;
+
+var message="Tea by the Tree Order 🌳%0A%0A"+
+"Tea: "+tea+"%0A"+
+"Style: "+style+"%0A"+
+"Toppings: "+toppings+"%0A"+
+"Sugar: "+sugar+"%0A"+
+"Comment: "+comments+"%0A%0A"+
+"Name: "+name;
+
+window.open("https://wa.me/?text="+message);
+
+}
+
+</script>
+
+</body>
+</html>

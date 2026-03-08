@@ -115,6 +115,11 @@ margin-bottom:6px;
 select{
 width:100%;
 }
+
+.field{
+margin-bottom:50px;
+}
+  
 </style>
 
 </head>
@@ -195,11 +200,15 @@ Orders will only be prepared after the payment screenshot is received.
 <div style="margin-top:15px;font-size:18px;font-weight:bold;">
 Total Price: $<span id="total">5</span>
 </div>
+<div class="field">
 <label>Special Request</label>
 <textarea id="comments" placeholder="Example: Less ice"></textarea>
+</div>
 
+<div class="field">
 <label>Your Name</label>
 <input id="name" placeholder="Enter your name">
+</div>
 
 <button onclick="sendOrder()">Place Order</button>
 

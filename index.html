@@ -3,54 +3,110 @@
 <head>
 <title>Tea by the Tree</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 
 body{
-font-family: Arial;
-background:#f5efe6;
-padding:20px;
+font-family: Arial, sans-serif;
+background:#f4efe9;
+margin:0;
+padding:0;
 }
 
-h1{
+.header{
 text-align:center;
+padding:40px 20px;
+background:white;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header h1{
+margin:0;
+font-size:32px;
+}
+
+.header p{
+color:#666;
 }
 
 .container{
 max-width:500px;
-margin:auto;
+margin:30px auto;
 background:white;
-padding:20px;
-border-radius:10px;
+padding:25px;
+border-radius:12px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 
-select,input,textarea,button{
+.signature{
+background:#fff7ec;
+padding:15px;
+border-radius:10px;
+margin-bottom:20px;
+text-align:center;
+}
+
+.signature h3{
+margin:5px 0;
+}
+
+select,input,textarea{
 width:100%;
 padding:10px;
-margin-top:10px;
+margin-top:8px;
+margin-bottom:15px;
 font-size:16px;
+border-radius:6px;
+border:1px solid #ddd;
 }
 
 button{
+width:100%;
+padding:14px;
+font-size:18px;
 background:#6b4f3b;
 color:white;
 border:none;
-border-radius:5px;
+border-radius:8px;
+cursor:pointer;
 }
 
 button:hover{
 background:#4e3828;
 }
 
+.step{
+margin-top:20px;
+font-weight:bold;
+}
+
 </style>
+
 </head>
 
 <body>
 
+<div class="header">
 <h1>🌳 Tea by the Tree</h1>
+<p>Fresh tea brewed under the tree</p>
+</div>
 
 <div class="container">
 
-<h3>Choose Your Tea</h3>
+<div class="signature">
+⭐ Signature Drink<br>
+<h3>Duck Shit Milk Tea</h3>
+<p>Rich roasted Dancong oolong with milk</p>
+</div>
+
+<div class="step">Step 1 — Pay with PayNow</div>
+<p>Please pay before placing your order.</p>
+
+<!-- PayNow QR will be added here later -->
+
+<div class="step">Step 2 — Build Your Drink</div>
+
+<label>Choose Your Tea</label>
 <select id="tea">
 <option>Honey Red Tea</option>
 <option>Osmanthus Oolong Tea</option>
@@ -58,7 +114,7 @@ background:#4e3828;
 <option>Duck Shit Dancong ⭐</option>
 </select>
 
-<h3>Choose Style ($5)</h3>
+<label>Choose Style ($5)</label>
 <select id="style">
 <option>Straight</option>
 <option>Milk Tea</option>
@@ -67,7 +123,7 @@ background:#4e3828;
 <option>Summer Passion</option>
 </select>
 
-<h3>Toppings (+$1)</h3>
+<label>Toppings (+$1)</label>
 <select id="toppings">
 <option>None</option>
 <option>Brown Sugar Pearls</option>
@@ -76,7 +132,7 @@ background:#4e3828;
 <option>Strawberry Popping Boba</option>
 </select>
 
-<h3>Sugar Level</h3>
+<label>Sugar Level</label>
 <select id="sugar">
 <option>0%</option>
 <option>25%</option>
@@ -85,10 +141,10 @@ background:#4e3828;
 <option>100%</option>
 </select>
 
-<h3>Special Requests</h3>
+<label>Special Request</label>
 <textarea id="comments" placeholder="Example: Less ice"></textarea>
 
-<h3>Your Name</h3>
+<label>Your Name</label>
 <input id="name" placeholder="Enter your name">
 
 <button onclick="sendOrder()">Place Order</button>

@@ -133,7 +133,7 @@ Orders will only be prepared after the payment screenshot is received.
 </select>
 
 <label>Toppings (+$1)</label>
-<select id="toppings">
+<select id="toppings" onchange="updatePrice()">
 <option>None</option>
 <option>Brown Sugar Pearls</option>
 <option>Passion Fruit Popping Boba</option>
@@ -149,7 +149,9 @@ Orders will only be prepared after the payment screenshot is received.
 <option>75%</option>
 <option>100%</option>
 </select>
-
+<div style="margin-top:15px;font-size:18px;font-weight:bold;">
+Total Price: $<span id="total">5</span>
+</div>
 <label>Special Request</label>
 <textarea id="comments" placeholder="Example: Less ice"></textarea>
 
@@ -161,7 +163,21 @@ Orders will only be prepared after the payment screenshot is received.
 </div>
 
 <script>
+function updatePrice(){
 
+var basePrice = 5;
+
+var toppings = document.getElementById("toppings").value;
+
+var total = basePrice;
+
+if(toppings !== "None"){
+total = total + 1;
+}
+
+document.getElementById("total").innerText = total;
+
+}
 function sendOrder(){
 
 var tea=document.getElementById("tea").value;

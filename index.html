@@ -200,6 +200,7 @@ Orders will only be prepared after the payment screenshot is received.
 </div>
 
 <script>
+
 let orderList = [];
 let totalOrderPrice = 0;
 let orderNumber = Math.floor(Math.random()*9000)+1000;
@@ -207,7 +208,6 @@ let orderNumber = Math.floor(Math.random()*9000)+1000;
 function updatePrice(){
 
 var basePrice = 5;
-
 var toppings = document.getElementById("toppings").value;
 
 var total = basePrice;
@@ -222,24 +222,25 @@ document.getElementById("total").innerText = total;
 
 function addDrink(){
 
-var tea=document.getElementById("tea").value;
-var style=document.getElementById("style").value;
-var toppings=document.getElementById("toppings").value;
-var sugar=document.getElementById("sugar").value;
-var comments=document.getElementById("comments").value;
+var tea = document.getElementById("tea").value;
+var style = document.getElementById("style").value;
+var toppings = document.getElementById("toppings").value;
+var sugar = document.getElementById("sugar").value;
+var comments = document.getElementById("comments").value;
 
 let drink =
-"Tea: "+tea+"\n"+
-"Style: "+style+"\n"+
-"Toppings: "+toppings+"\n"+
-"Sugar: "+sugar+"\n"+
-"Comment: "+comments;
+"Tea: " + tea + "\n" +
+"Style: " + style + "\n" +
+"Toppings: " + toppings + "\n" +
+"Sugar: " + sugar + "\n" +
+"Comment: " + comments;
 
 orderList.push(drink);
+
 totalOrderPrice += parseFloat(document.getElementById("total").innerText);
+
 document.getElementById("cartItems").innerText =
 orderList.join("\n\n") + "\n\nTotal: $" + totalOrderPrice;
-
 
 alert("Drink added!");
 
@@ -252,8 +253,8 @@ var name = document.getElementById("name").value;
 var message = "🍵 Tea by the Tree Order 🌳\n\nOrder #" + orderNumber + "\n\n";
 
 for(let i=0;i<orderList.length;i++){
-    message += "Drink " + (i+1) + "\n";
-    message += orderList[i] + "\n\n";
+message += "Drink " + (i+1) + "\n";
+message += orderList[i] + "\n\n";
 }
 
 message += "Total: $" + totalOrderPrice + "\n\n";
@@ -272,29 +273,12 @@ document.getElementById("cartItems").innerText = "";
 
 }
 
-message += "Total: $" + totalOrderPrice + "\n\n";
-message+="Name: "+name;
-
-await sendOrderToTelegram(message);
-
-let receiptData = encodeURIComponent(message);
-
-window.location.href =
-"receipt.html?order=" + orderNumber + "&details=" + receiptData;
-
-orderList = [];
-totalOrderPrice = 0;
-document.getElementById("cartItems").innerText = "";
-
-}
-
-
-async function sendOrderToTelegram(orderText) {
+async function sendOrderToTelegram(orderText){
 
 const fileInput = document.getElementById("paymentProof");
 const file = fileInput.files[0];
 
-if (!file) {
+if(!file){
 alert("Please upload your PayNow screenshot first.");
 return;
 }
@@ -313,6 +297,7 @@ body: formData
 });
 
 alert("Order sent successfully!");
+
 }
 
 </script>

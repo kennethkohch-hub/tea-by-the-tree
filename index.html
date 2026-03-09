@@ -247,6 +247,16 @@ alert("Drink added!");
 }
 
 async function sendOrder(){
+  
+let orderNumber = localStorage.getItem("teaOrderNumber");
+
+if(!orderNumber){
+orderNumber = 1;
+}else{
+orderNumber = parseInt(orderNumber) + 1;
+}
+
+localStorage.setItem("teaOrderNumber", orderNumber);
 
 var name = document.getElementById("name").value;
 

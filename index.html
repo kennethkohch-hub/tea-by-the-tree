@@ -255,11 +255,11 @@ var sugar=document.getElementById("sugar").value;
 var comments=document.getElementById("comments").value;
 var name=document.getElementById("name").value;
 
-var message="🍵 Tea by the Tree Order 🌳"\n\nOrder #" + orderNumber + "\n\n";
+var message = "🍵 Tea by the Tree Order 🌳\n\nOrder #" + orderNumber + "\n\n";
 
 for(let i=0;i<orderList.length;i++){
-message+="Drink "+(i+1)+"\n";
-message+=orderList[i]+"\n\n";
+    message += "Drink " + (i+1) + "\n";
+    message += orderList[i] + "\n\n";
 }
 
 message += "Total: $" + totalOrderPrice + "\n\n";

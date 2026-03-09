@@ -260,7 +260,11 @@ message += orderList[i] + "\n\n";
 message += "Total: $" + totalOrderPrice + "\n\n";
 message += "Name: " + name;
 
-await sendOrderToTelegram(message);
+let sent = await sendOrderToTelegram(message);
+
+if(!sent){
+return;
+}
 
 let receiptData = encodeURIComponent(message);
 
@@ -298,6 +302,7 @@ body: formData
 
 alert("Order sent successfully!");
 
+return true;
 }
 
 </script>

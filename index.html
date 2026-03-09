@@ -162,6 +162,36 @@ animation:fall linear infinite;
 .leaves span:nth-child(7){left:90%;background:#b8860b;animation-duration:15s;}
 .leaves span:nth-child(8){left:95%;background:#6b8e23;animation-duration:12s;}
 
+.boba{
+width:22px;
+height:34px;
+background:#d9a066;
+border-radius:6px;
+position:absolute;
+animation:fall linear infinite;
+}
+
+.boba::after{
+content:'';
+position:absolute;
+bottom:-4px;
+left:4px;
+width:10px;
+height:6px;
+background:black;
+border-radius:50%;
+}
+
+.boba::before{
+content:'';
+position:absolute;
+top:-8px;
+left:8px;
+width:3px;
+height:10px;
+background:#555;
+}
+
 @keyframes fall{
 0%{
 transform:translateY(-50px) rotate(0deg);
@@ -178,14 +208,14 @@ transform:translateY(110vh) rotate(360deg);
 <body>
   
 <div class="leaves">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
+<span></span>
+<span></span>
+<span class="boba"></span>
+<span></span>
+<span></span>
+<span class="boba"></span>
+<span></span>
+<span></span>
 </div>
   
 <div class="box">

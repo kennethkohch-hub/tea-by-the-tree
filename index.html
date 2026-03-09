@@ -177,6 +177,8 @@ Total Price: $<span id="total">5</span>
 2️⃣ Screenshot the payment confirmation<br>
 3️⃣ Send the screenshot after sending your order on WhatsApp<br><br>
 Orders will only be prepared after the payment screenshot is received.
+<label>Upload PayNow Screenshot</label>
+<input type="file" id="paymentProof" accept="image/*">
 </div>
 
 
@@ -226,8 +228,34 @@ var message="Tea by the Tree Order 🌳%0A%0A"+
 "Name: "+name+"%0A%0A"+
 "⚠ Please send your PayNow payment screenshot after this message.";
 
-window.open("https://wa.me/6589903285?text="+message);
+sendOrderToTelegram(message);
 
+}
+
+async function sendOrderToTelegram(orderText) {
+
+const fileInput = document.getElementById("paymentProof");
+const file = fileInput.files[0];
+
+if (!file) {
+alert("Please upload your PayNow screenshot first.");
+return;
+}
+
+const botToken = "7643810827:AAGF7b72QhmyyDnFaiMqQ4IT723eCIz4JAo";
+const chatId = "8521208808";
+
+let formData = new FormData();
+formData.append("chat_id", chatId);
+formData.append("caption", orderText);
+formData.append("photo", file);
+
+await fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
+method: "POST",
+body: formData
+});
+
+alert("Order sent successfully!");
 }
 
 </script>

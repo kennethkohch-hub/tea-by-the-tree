@@ -245,7 +245,7 @@ alert("Drink added!");
 
 }
 
-function sendOrder(){
+async function sendOrder(){
 
 var tea=document.getElementById("tea").value;
 var style=document.getElementById("style").value;
@@ -264,7 +264,7 @@ message+=orderList[i]+"\n\n";
 message += "Total: $" + totalOrderPrice + "\n\n";
 message+="Name: "+name;
 
-sendOrderToTelegram(message);
+await sendOrderToTelegram(message);
 
 let receiptData = encodeURIComponent(message);
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order Receipt</title>
+
+<style>
+body{
+font-family: Arial;
+background:#f7f3eb;
+text-align:center;
+padding:40px;
+}
+
+.box{
+background:white;
+padding:30px;
+border-radius:10px;
+max-width:500px;
+margin:auto;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+h1{
+color:#3d4b2a;
+}
+
+.order{
+text-align:left;
+margin-top:20px;
+white-space:pre-line;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>Order Confirmed ✅</h1>
+
+<h2 id="orderNumber"></h2>
+
+<div class="order" id="receiptDetails"></div>
+
+<p>Thank you for your order!</p>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("orderNumber").innerText =
+"Order #" + params.get("order");
+
+document.getElementById("receiptDetails").innerText =
+params.get("details");
+
+</script>
+
+</body>
+</html>

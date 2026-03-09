@@ -109,6 +109,8 @@ border-radius:12px;
 max-width:500px;
 width:100%;
 box-shadow:0 10px 25px rgba(0,0,0,0.1);
+position:relative;
+z-index:2;
 }
   
 button{
@@ -129,11 +131,62 @@ background:#5f7348;
 transform:scale(1.02);
 }
   
+.leaves{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+z-index:0;
+}
+
+.leaves span{
+position:absolute;
+top:-50px;
+width:20px;
+height:20px;
+background:#6b8e23;
+border-radius:50% 0 50% 0;
+opacity:0.7;
+animation:fall linear infinite;
+}
+
+.leaves span:nth-child(1){left:10%;background:#6b8e23;animation-duration:12s;}
+.leaves span:nth-child(2){left:25%;background:#8fbc8f;animation-duration:9s;}
+.leaves span:nth-child(3){left:40%;background:#556b2f;animation-duration:14s;}
+.leaves span:nth-child(4){left:55%;background:#a0522d;animation-duration:11s;}
+.leaves span:nth-child(5){left:70%;background:#9acd32;animation-duration:13s;}
+.leaves span:nth-child(6){left:80%;background:#228b22;animation-duration:10s;}
+.leaves span:nth-child(7){left:90%;background:#b8860b;animation-duration:15s;}
+.leaves span:nth-child(8){left:95%;background:#6b8e23;animation-duration:12s;}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px) rotate(0deg);
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+  
 </style>
 
 </head>
 
 <body>
+  
+<div class="leaves">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
   
 <div class="box">
 

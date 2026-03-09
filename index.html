@@ -234,9 +234,10 @@ let drink =
 "Comment: "+comments;
 
 orderList.push(drink);
+totalOrderPrice += parseFloat(document.getElementById("total").innerText);
 document.getElementById("cartItems").innerText =
 orderList.join("\n\n") + "\n\nTotal: $" + totalOrderPrice;
-totalOrderPrice += parseFloat(document.getElementById("total").innerText);
+
 
 alert("Drink added!");
 

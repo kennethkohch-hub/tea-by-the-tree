@@ -191,12 +191,17 @@ Orders will only be prepared after the payment screenshot is received.
 
 
 <div class="field">
+<div id="cart">
+<h3>Your Order</h3>
+<div id="cartItems"></div>
+</div>
 <button onclick="addDrink()">Add Drink</button>
 <button onclick="sendOrder()">Place Order</button>
 </div>
 
 <script>
 let orderList = [];
+let totalOrderPrice = 0;
 function updatePrice(){
 
 var basePrice = 5;
@@ -227,6 +232,8 @@ let drink =
 "Sugar: "+sugar;
 
 orderList.push(drink);
+document.getElementById("cartItems").innerText = orderList.join("\n\n");
+totalOrderPrice += total;
 
 alert("Drink added!");
 
@@ -248,10 +255,13 @@ message+="Drink "+(i+1)+"\n";
 message+=orderList[i]+"\n\n";
 }
 
+message += "Total: $" + totalOrderPrice + "\n\n";
 message+="Name: "+name;
 
 sendOrderToTelegram(message);
 orderList = [];
+totalOrderPrice = 0;
+document.getElementById("cartItems").innerText = "";
 
 }
 

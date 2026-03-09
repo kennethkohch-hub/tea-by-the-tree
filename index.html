@@ -229,11 +229,12 @@ let drink =
 "Tea: "+tea+"\n"+
 "Style: "+style+"\n"+
 "Toppings: "+toppings+"\n"+
-"Sugar: "+sugar;
+"Sugar: "+sugar+"\n"+
+"Comment: "+comments;
 
 orderList.push(drink);
 document.getElementById("cartItems").innerText = orderList.join("\n\n");
-totalOrderPrice += total;
+totalOrderPrice += parseFloat(document.getElementById("total").innerText);
 
 alert("Drink added!");
 

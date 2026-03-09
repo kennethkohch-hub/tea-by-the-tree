@@ -191,10 +191,12 @@ Orders will only be prepared after the payment screenshot is received.
 
 
 <div class="field">
+<button onclick="addDrink()">Add Drink</button>
 <button onclick="sendOrder()">Place Order</button>
 </div>
 
 <script>
+let orderList = [];
 function updatePrice(){
 
 var basePrice = 5;
@@ -210,6 +212,26 @@ total = total + 1;
 document.getElementById("total").innerText = total;
 
 }
+
+function addDrink(){
+
+var tea=document.getElementById("tea").value;
+var style=document.getElementById("style").value;
+var toppings=document.getElementById("toppings").value;
+var sugar=document.getElementById("sugar").value;
+
+let drink =
+"Tea: "+tea+"\n"+
+"Style: "+style+"\n"+
+"Toppings: "+toppings+"\n"+
+"Sugar: "+sugar;
+
+orderList.push(drink);
+
+alert("Drink added!");
+
+}
+
 function sendOrder(){
 
 var tea=document.getElementById("tea").value;
@@ -219,16 +241,17 @@ var sugar=document.getElementById("sugar").value;
 var comments=document.getElementById("comments").value;
 var name=document.getElementById("name").value;
 
-var message =
-"🍵 Tea by the Tree Order 🌳\n\n"+
-"Tea: "+tea+"\n"+
-"Style: "+style+"\n"+
-"Toppings: "+toppings+"\n"+
-"Sugar: "+sugar+"\n"+
-"Comment: "+comments+"\n\n"+
-"Name: "+name;
+var message="🍵 Tea by the Tree Order 🌳\n\n";
+
+for(let i=0;i<orderList.length;i++){
+message+="Drink "+(i+1)+"\n";
+message+=orderList[i]+"\n\n";
+}
+
+message+="Name: "+name;
 
 sendOrderToTelegram(message);
+orderList = [];
 
 }
 

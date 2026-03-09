@@ -224,6 +224,7 @@ var tea=document.getElementById("tea").value;
 var style=document.getElementById("style").value;
 var toppings=document.getElementById("toppings").value;
 var sugar=document.getElementById("sugar").value;
+var comments=document.getElementById("comments").value;
 
 let drink =
 "Tea: "+tea+"\n"+
@@ -233,7 +234,8 @@ let drink =
 "Comment: "+comments;
 
 orderList.push(drink);
-document.getElementById("cartItems").innerText = orderList.join("\n\n");
+document.getElementById("cartItems").innerText =
+orderList.join("\n\n") + "\n\nTotal: $" + totalOrderPrice;
 totalOrderPrice += parseFloat(document.getElementById("total").innerText);
 
 alert("Drink added!");

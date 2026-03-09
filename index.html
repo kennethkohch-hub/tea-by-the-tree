@@ -202,6 +202,8 @@ Orders will only be prepared after the payment screenshot is received.
 <script>
 let orderList = [];
 let totalOrderPrice = 0;
+
+let orderNumber = Math.floor(Math.random()*9000)+1000;
 function updatePrice(){
 
 var basePrice = 5;
@@ -252,7 +254,7 @@ var sugar=document.getElementById("sugar").value;
 var comments=document.getElementById("comments").value;
 var name=document.getElementById("name").value;
 
-var message="🍵 Tea by the Tree Order 🌳\n\n";
+var message="🍵 Tea by the Tree Order 🌳\n\nOrder #" + orderNumber + "\n\n";
 
 for(let i=0;i<orderList.length;i++){
 message+="Drink "+(i+1)+"\n";
@@ -263,6 +265,12 @@ message += "Total: $" + totalOrderPrice + "\n\n";
 message+="Name: "+name;
 
 sendOrderToTelegram(message);
+
+let receiptData = encodeURIComponent(message);
+
+window.location.href =
+"receipt.html?order=" + orderNumber + "&details=" + receiptData;
+
 orderList = [];
 totalOrderPrice = 0;
 document.getElementById("cartItems").innerText = "";

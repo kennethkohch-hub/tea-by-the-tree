@@ -279,8 +279,8 @@ const fileInput = document.getElementById("paymentProof");
 const file = fileInput.files[0];
 
 if(!file){
-alert("Please upload your PayNow screenshot first.");
-return;
+alert("⚠️ Please upload your PayNow payment screenshot before placing the order.");
+return false;
 }
 
 const botToken = "7643810827:AAGF7b72QhmyyDnFaiMqQ4IT723eCIz4JAo";
